@@ -12,8 +12,6 @@ class Solution:
 
 
 obj = Solution()
-
-
 nums = [1,2,3,4]
 
 print(obj.runningSum(nums))
