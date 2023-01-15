@@ -4,6 +4,7 @@ class Solution:
         numMap = {}
         odd_found = False
         total_length = 0
+        # create counter object
         for i in s:
             if i in numMap:
                 numMap[i]+=1
