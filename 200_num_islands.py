@@ -1,14 +1,23 @@
 class Solution:
     def numIslands(self, grid):
-        numIslands =0
-        for r in range(len(grid)):
-            for c in range(len(grid[r])):
-                if grid[r][c]=="1":
-                    numIslands +=1
-                    if grid[r-1][c] =="1" or grid[r][c-1] =="1":
-                        numIslands -=1
-                        
-        return numIslands
+        height = len(grid)
+        width = len(grid[0])
+        islands = 0
+        def mark_land(r,c):
+            if r < 0 or r >= height or c <0 or c>= width or grid[r][c] != "1": return
+            grid[r][c] ="x"
+            mark_land(r+1,c)
+            mark_land(r-1,c)
+            mark_land(r,c+1)
+            mark_land(r,c-1)
+            
+        for r in range(height):
+            for c in range(width):
+                if grid[r][c] == "1":
+                    mark_land(r,c)
+                    islands+=1
+            
+        return islands
 
 
 grid = [
